@@ -87,7 +87,7 @@ const Buildteam = () => {
       const strikerFilled = team.filter(player => player.position === 'Striker').length >= 2
       const defenderFilled = team.filter(player => player.position === 'Defender').length >= 2
       const midfielderFilled = team.filter(player => player.position === 'Midfielder').length >= 2
-      const GoalkeeperFilled = team.filter(player => player.position === 'Goalkeeper').length >= 2
+      const GoalkeeperFilled = team.filter(player => player.position === 'Goalkeeper').length >= 1
 
       const isPlayerAdded = team.filter(_player => player.name === _player.name).length > 0
 
@@ -117,35 +117,38 @@ const Buildteam = () => {
   }
 
   return <>
-   <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
-    <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
-    <div className="cardContainer">
-      <button onClick={() => handleSubmit()}>Submit Team</button>
       <ul>
         <h1>Team</h1>
-
         <div className='create-team-container'>
 
           {team.map((player, index) => {
             return <li key={index}>
               <img className="card"  src={player.image} />
-              <h1>{player.name} {player.position}</h1>
+              <h1>
+                {/* {player.name} */}
+               {player.position}</h1>
               <button className="button"  onClick={() => handleRemovePlayer(index)}>Remove Player</button>
             </li>
           })}
         </div>
       </ul>
-      <div className='team-container'>
+   <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
+    <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
+    <div className="cardContainer">
+      <button className="button" onClick={() => handleSubmit()}>Submit Team</button>
 
+      <div className='team-container'>
         {filterPlayers().map((player, index) => {
-          return <div key={index}>
+          return <div className="center-of-card" key={index}>
             <h2>
-              {player.name} {player.position}
+            ${new Intl.NumberFormat().format(player.playerCost)}
+              {/* ${player.playerCost} */}
+               {/* {player.position} */}
             </h2>
             <h2>
               {/* {player.createdBy} {player.createdBy} */}
             </h2>
-            <img className="card" src={player.image} />
+            <img className="card-img" src={player.image} />
             <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>
           </div>
         }
