@@ -14,6 +14,8 @@ import { toast } from 'react-toastify';
 
 const Buildteam = () => {
 
+  const navigate = useNavigate()
+
   const [players, setPlayers] = useState([])
   const [money, setMoney] = useState(20000000)
   const [team, setTeam] = useState([])
@@ -25,7 +27,15 @@ const Buildteam = () => {
       console.log(data)
       setPlayers(data)
     }
+  async function fetchTeam() {
+    const token = localStorage.getItem("token")
+    const { data } = await axios.get('/api/userteam', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    setTeam(data.players)
+  }
 
+    fetchTeam()
     fetchPlayers()
   }, [])
 
@@ -65,14 +75,17 @@ const Buildteam = () => {
         // ! Get our token from localStorage
         const token = localStorage.getItem('token')
         // ! Attach the token as a header when posting our new cheese
-        const { data } = await axios.post('/api/teams', postedteam, {
+        const { data } = await axios.put('/api/teams', postedteam, {
           headers: { Authorization: `Bearer ${token}` }
         })
         console.log(data)
         // ! Navigate to the cheeses page
-        //navigate('/')
+        navigate('/')
       } catch (err) {
-        console.log(err.response.data)
+        
+        console.log(err)
+
+        // console.log(err.response.data)
         
       }
     } else {
@@ -148,7 +161,7 @@ const Buildteam = () => {
             <h2>
               {/* {player.createdBy} {player.createdBy} */}
             </h2>
-            <img className="card-img" src={player.image} />
+            <img className="card" src={player.image} />
             <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>
           </div>
         }
