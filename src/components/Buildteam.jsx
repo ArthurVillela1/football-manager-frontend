@@ -109,28 +109,34 @@ const Buildteam = () => {
     <div><b>Budget:</b> ${money}</div>
     <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
     <div className="cardContainer">
-      <div className='team-container'>
-        <button onClick={() => handleSubmit()}>Submit Team</button>
-        <ul>
-          <h1>Team</h1>
+      <button onClick={() => handleSubmit()}>Submit Team</button>
+      <ul>
+        <h1>Team</h1>
+
+        <div className='team-container'>
+
           {team.map((player, index) => {
             return <li key={index}>
               <img src={player.image} />
               <h1>{player.name} {player.position}</h1>
               <button onClick={() => handleRemovePlayer(index)}>Remove Player</button>
             </li>
-          })}</ul>
-      </div>
-      {filterPlayers().map((player, index) => {
-        return <div key={index}>
-          <h2>
-            {player.name} {player.position}
-          </h2>
-          <img src={player.image} />
-          <button onClick={() => { handleAddPlayer(index) }}>Add to team</button>
+          })}
         </div>
-      }
-      )}
+      </ul>
+      <div className='team-container'>
+
+        {filterPlayers().map((player, index) => {
+          return <div key={index}>
+            <h2>
+              {player.name} {player.position}
+            </h2>
+            <img className="card" src={player.image} />
+            <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>
+          </div>
+        }
+        )}
+      </div>
     </div>
   </>
 }

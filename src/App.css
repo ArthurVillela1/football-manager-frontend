@@ -1,3 +1,16 @@
-.team-container{
-    border:black solid 3px;
+.card {
+    border: white solid 2px;
+    min-width: 13vw;
+    max-width: 13vw;
+    min-height: 21vh;
+    background-size: contain;
+}
+
+.team-container {
+    display: flex;
+    border: white solid 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
 }
