@@ -1,6 +1,8 @@
 import { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify';
+
 
 export default function Login() {
   const navigate = useNavigate()
@@ -23,8 +25,10 @@ export default function Login() {
       const token = data.token
 
       localStorage.setItem('token', token)
+      toast.success('Login successful!');
       navigate('/')
     } catch (err) {
+      toast.error(err.response.data.message);
       console.log(err.response.data)
     }
   }

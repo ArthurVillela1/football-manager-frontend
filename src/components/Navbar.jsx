@@ -1,7 +1,11 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, redirect, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+
+  const navigate = useNavigate()
+
   const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token'))
 
@@ -13,6 +17,8 @@ const Navbar = () => {
   function logout() {
     setIsLoggedIn(false)
     localStorage.removeItem('token')
+
+    navigate("/")
   }
 
   return <nav className="navbar">
@@ -20,10 +26,10 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
-            {/*<Link to="/" className="button">Home</Link>*/}
-            {<Link to="/Buildteam" className="button">Build Team</Link>}
+            <Link to="/" className="button">Home</Link>
             {!isLoggedIn && <Link to="/signup" className="button">Signup</Link>}
             {!isLoggedIn && <Link to="/login" className="button">Login</Link>}
+            {isLoggedIn && <Link to="/Buildteam" className="button">Build Team</Link>}
             {isLoggedIn && <button className="button" onClick={logout}>Logout</button>}
           </div>
         </div>

@@ -4,6 +4,13 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { isAddedBy } from '../lib/auth'
 import "../App.css"
+import { toast } from 'react-toastify';
+
+// when page loads you need to fetch the team for the user if user has a team that already exists 
+// user.finbyid --- if your team exits fetch the team
+// create an empty team when user creates an account and change post to put
+//you will need to fetch that empty team with manager user on build team
+//
 
 const Buildteam = () => {
 
@@ -33,7 +40,9 @@ const Buildteam = () => {
       setMoney(payment)
 
     } else {
-      return "not enough money"
+      toast.error('You dont have enough money');
+
+
     }
   }
 
@@ -64,9 +73,11 @@ const Buildteam = () => {
         //navigate('/')
       } catch (err) {
         console.log(err.response.data)
+        
       }
     } else {
-      console.log('You should add 6 players to submit your team')
+      toast.error('You Need 7 Players To Submit ! ');
+      console.log()
     }
 
   }
@@ -106,20 +117,20 @@ const Buildteam = () => {
   }
 
   return <>
-    <div><b>Budget:</b> ${money}</div>
+   <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
     <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
     <div className="cardContainer">
       <button onClick={() => handleSubmit()}>Submit Team</button>
       <ul>
         <h1>Team</h1>
 
-        <div className='team-container'>
+        <div className='create-team-container'>
 
           {team.map((player, index) => {
             return <li key={index}>
-              <img src={player.image} />
+              <img className="card"  src={player.image} />
               <h1>{player.name} {player.position}</h1>
-              <button onClick={() => handleRemovePlayer(index)}>Remove Player</button>
+              <button className="button"  onClick={() => handleRemovePlayer(index)}>Remove Player</button>
             </li>
           })}
         </div>
@@ -130,6 +141,9 @@ const Buildteam = () => {
           return <div key={index}>
             <h2>
               {player.name} {player.position}
+            </h2>
+            <h2>
+              {/* {player.createdBy} {player.createdBy} */}
             </h2>
             <img className="card" src={player.image} />
             <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>

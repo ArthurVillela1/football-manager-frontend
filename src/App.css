@@ -14,3 +14,12 @@
 
 
 }
+
+.create-team-container {
+    display: flex;
+    border: white solid 2px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 81vh;
+    min-height: 60vh;
+}
