@@ -120,13 +120,13 @@ const Buildteam = () => {
   }
 
   return <>
-    <ul>
       <h1>Team</h1>
+    <ul className='main-container'>
       <div className='create-team-container'>
 
         {team.map((player, index) => {
           return <li key={index}>
-            <img className="card" src={player.image} />
+            <img className="card-create" src={player.image} />
             <button className="button" onClick={() => handleRemovePlayer(index)}>Remove Player</button>
           </li>
         })}

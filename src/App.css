@@ -6,6 +6,12 @@
     background-size: contain;
 }
 
+.card-create {
+    /* border: white solid 2px; */
+    max-width: 235px;
+    border-radius: 8px;
+}
+
 .team-container {
     display: flex;
     /* border: white solid 2px; */
@@ -15,17 +21,88 @@
 
 }
 
+li {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
 .create-team-container {
     display: flex;
-    border: white solid 2px;
+    /* border: white solid 2px; */
     flex-wrap: wrap;
     justify-content: center;
     max-height: 81vh;
     min-height: 60vh;
+    background-color: #181c23;
+    ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 95%;
+    margin-bottom: 20px;
+    min-height: 40vh;
 }
+
 .center-of-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.teams-display {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.team-box {
+    /* background-color: #181c23; */
+    /* border: 1px solid #ddd; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    background-color: #181c23;
+}
+
+.team-container h2 {
+    margin-top: 0;
+}
+
+.players-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+}
+
+.player-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.player-card {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+.player-item p {
+    margin: 5px 0;
+    text-align: center;
 }

@@ -21,16 +21,16 @@ import axios from 'axios'
 
 
     return (
-      <div>
-        <h1>Teams</h1>
+      <div className='teams-display'>
         {teams.map((team) => (
-          <div key={team._id}>
+          <div key={team._id} className='team-box'>
             <h2>{team.manager.username}'s Team</h2>
             <p>Budget: ${team.budget}</p>
-            <ul>
+            <ul className='players-list'>
               {team.players.map((player) => (
-                <li key={player._id}>
-                  {player.name} - {player.position}
+                <li key={player._id} className='player-item'>
+                  <img className='player-card' src={player.image}  />
+                  
                 </li>
               ))}
             </ul>
@@ -39,6 +39,4 @@ import axios from 'axios'
       </div>
     );
   };
-  
-  
   export default Home
