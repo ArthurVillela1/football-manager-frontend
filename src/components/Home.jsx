@@ -1,16 +1,44 @@
-const Home = () => {
-    return <div className="hero is-fullheight-with-navbar">
-      <div className="hero-body">
-        <div className="container has-text-centered">
-          <h1 className="subtitle mb-5">
-            Welcome to football manager
-          </h1>
-          <h2 className="title">
-            Build your dream team here
-          </h2>
-        </div>
+import React, { useEffect, useState} from 'react'
+import axios from 'axios'
+
+
+
+  const Home = () => {
+
+    const [teams, setTeams] = useState([])
+    
+    useEffect(() => {
+      const fetchTeams = async () => {
+        try{
+          const response = await axios.get('/api/teams')
+          setTeams(response.data)
+        }catch(err){
+          console.log('Did not fetch')
+        }
+      }
+      fetchTeams()
+    },[])
+
+
+    return (
+      <div>
+        <h1>Teams</h1>
+        {teams.map((team) => (
+          <div key={team._id}>
+            <h2>{team.manager.username}'s Team</h2>
+            <p>Budget: ${team.budget}</p>
+            <ul>
+              {team.players.map((player) => (
+                <li key={player._id}>
+                  {player.name} - {player.position}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-    </div>
-  }
+    );
+  };
+  
   
   export default Home

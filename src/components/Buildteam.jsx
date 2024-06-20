@@ -6,18 +6,12 @@ import { isAddedBy } from '../lib/auth'
 import "../App.css"
 import { toast } from 'react-toastify';
 
-// when page loads you need to fetch the team for the user if user has a team that already exists 
-// user.finbyid --- if your team exits fetch the team
-// create an empty team when user creates an account and change post to put
-//you will need to fetch that empty team with manager user on build team
-//
-
 const Buildteam = () => {
 
   const navigate = useNavigate()
 
   const [players, setPlayers] = useState([])
-  const [money, setMoney] = useState(20000000)
+  const [money, setMoney] = useState(0)
   const [team, setTeam] = useState([])
 
   useEffect(() => {
@@ -27,13 +21,14 @@ const Buildteam = () => {
       console.log(data)
       setPlayers(data)
     }
-  async function fetchTeam() {
-    const token = localStorage.getItem("token")
-    const { data } = await axios.get('/api/userteam', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    setTeam(data.players)
-  }
+    async function fetchTeam() {
+      const token = localStorage.getItem("token")
+      const { data } = await axios.get('/api/userteam', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      setTeam(data.players)
+      setMoney(data.budget)
+    }
 
     fetchTeam()
     fetchPlayers()
@@ -51,18 +46,14 @@ const Buildteam = () => {
 
     } else {
       toast.error('You dont have enough money');
-
-
     }
   }
-
-  console.log(team)
 
   const handleRemovePlayer = (removeIndex) => {
     const playerToRemove = team[removeIndex]
     const newTeam = structuredClone(team).filter((player, index) => index !== removeIndex)
 
-    setMoney(money + playerToRemove.playerCost)
+    setMoney(Number(money) + Number(playerToRemove.playerCost))
     setTeam(newTeam)
   }
 
@@ -82,11 +73,11 @@ const Buildteam = () => {
         // ! Navigate to the cheeses page
         navigate('/')
       } catch (err) {
-        
+
         console.log(err)
 
         // console.log(err.response.data)
-        
+
       }
     } else {
       toast.error('You Need 7 Players To Submit ! ');
@@ -101,7 +92,6 @@ const Buildteam = () => {
       const defenderFilled = team.filter(player => player.position === 'Defender').length >= 2
       const midfielderFilled = team.filter(player => player.position === 'Midfielder').length >= 2
       const GoalkeeperFilled = team.filter(player => player.position === 'Goalkeeper').length >= 1
-
       const isPlayerAdded = team.filter(_player => player.name === _player.name).length > 0
 
       if (isPlayerAdded) {
@@ -130,33 +120,32 @@ const Buildteam = () => {
   }
 
   return <>
-      <ul>
-        <h1>Team</h1>
-        <div className='create-team-container'>
+    <ul>
+      <h1>Team</h1>
+      <div className='create-team-container'>
 
-          {team.map((player, index) => {
-            return <li key={index}>
-              <img className="card"  src={player.image} />
-              <h1>
-                {/* {player.name} */}
-               {player.position}</h1>
-              <button className="button"  onClick={() => handleRemovePlayer(index)}>Remove Player</button>
-            </li>
-          })}
-        </div>
-      </ul>
-   <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
+        {team.map((player, index) => {
+          return <li key={index}>
+            <img className="card" src={player.image} />
+            <button className="button" onClick={() => handleRemovePlayer(index)}>Remove Player</button>
+          </li>
+        })}
+
+      </div>
+    </ul>
+    <button className="button" onClick={() => handleSubmit()}>Save Team</button>
+    <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
     <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
     <div className="cardContainer">
-      <button className="button" onClick={() => handleSubmit()}>Submit Team</button>
+
 
       <div className='team-container'>
         {filterPlayers().map((player, index) => {
           return <div className="center-of-card" key={index}>
             <h2>
-            ${new Intl.NumberFormat().format(player.playerCost)}
+              ${new Intl.NumberFormat().format(player.playerCost)}
               {/* ${player.playerCost} */}
-               {/* {player.position} */}
+              {/* {player.position} */}
             </h2>
             <h2>
               {/* {player.createdBy} {player.createdBy} */}
