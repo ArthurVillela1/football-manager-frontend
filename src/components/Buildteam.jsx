@@ -83,7 +83,6 @@ const Buildteam = () => {
       toast.error('You Need 7 Players To Submit ! ');
       console.log()
     }
-
   }
 
   function filterPlayers() {
