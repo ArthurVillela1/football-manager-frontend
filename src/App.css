@@ -5,25 +5,28 @@ html {
     background-color: #181c23;
 
 }
-.playerCost{
+
+.playerCost {
     font-family: 'BlackJack', sans-serif;
 }
 
-#budget, #rules{
-    font-size:20px;
+#budget,
+#rules {
+    font-size: 20px;
 }
 
-#team{
+#team {
     text-align: center;
-    font-size:30px;
+    font-size: 30px;
 }
 
-.card {
-    /* border: white solid 2px; */
+.card- {
     min-width: 13vw;
     max-width: 13vw;
     min-height: 21vh;
     background-size: contain;
+    background-color: #181c23;
+
 }
 
 .card-create {
@@ -32,15 +35,17 @@ html {
     border-radius: 8px;
 }
 
-.team-container {
+.container {
+    background-color: #181c23;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
     display: flex;
-    /* border: white solid 2px; */
     flex-wrap: wrap;
     justify-content: center;
-
-
+    min-width: 95%;
+    justify-content: center;
+    align-items: stretch;
 }
-
 li {
     display: flex;
     display: flex;
@@ -57,36 +62,20 @@ li {
 .create-team-container {
     display: flex;
     /* border: white solid 2px; */
-    flex-wrap: wrap;
     justify-content: center;
-    max-height: 81vh;
+    flex-wrap: wrap;
+    /* max-height: 81vh; */
     min-height: 60vh;
     background-color: #181c23;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     padding: 20px;
-    width: 100%;
-    max-width: 95%;
+    /* width: 100%; */
+    min-width: 95%;
     margin-bottom: 20px;
     min-height: 40vh;
 }
 
-.create-team-container.active {
-    display: flex;
-    /* border: white solid 2px; */
-    flex-wrap: wrap;
-    justify-content: center;
-    max-height: 81vh;
-    min-height: 60vh;
-    background-color: #181c23;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 95%;
-    margin-bottom: 20px;
-    min-height: 40vh;
-}
 
 .center-of-card {
     display: flex;
@@ -100,6 +89,8 @@ li {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    padding: 5vh;
+
 }
 
 
@@ -113,6 +104,8 @@ li {
     max-width: 1200px;
     margin-bottom: 20px;
     background-color: #181c23;
+    
+
 }
 
 .team-container h2 {

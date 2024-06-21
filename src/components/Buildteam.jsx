@@ -66,7 +66,7 @@ const Buildteam = () => {
         // ! Get our token from localStorage
         const token = localStorage.getItem('token')
         // ! Attach the token as a header when posting our new cheese
-        const { data } = await axios.put('/api/teams', postedteam, {
+        const { data } = await axios.put(`${baseUrl}/teams`, postedteam, {
           headers: { Authorization: `Bearer ${token}` }
         })
         console.log(data)
@@ -139,11 +139,11 @@ const Buildteam = () => {
     <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
     <div id="rules"><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
     <br></br>
-    <div className="cardContainer">
-      <div className='team-container'>
+    
+      <div className='container'>
         {filterPlayers().map((player, index) => {
           return <div className="center-of-card" key={index}>
-            <img className="card" src={player.image} />
+            <img className="card-" src={player.image} />
             <h2>{player.position}</h2>
             <h2 class='playerCost'>
               ${new Intl.NumberFormat().format(player.playerCost)}
@@ -154,7 +154,6 @@ const Buildteam = () => {
         }
         )}
       </div>
-    </div>
   </>
 }
 
