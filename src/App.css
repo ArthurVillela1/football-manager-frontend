@@ -1,5 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/black-jack');
 
+
+html {
+    background-color: #181c23;
+
+}
 .playerCost{
     font-family: 'BlackJack', sans-serif;
 }
