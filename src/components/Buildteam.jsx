@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { isAddedBy } from '../lib/auth'
 import "../App.css"
 import { toast } from 'react-toastify';
+import React from 'react'
 
 const Buildteam = () => {
 
@@ -119,38 +120,37 @@ const Buildteam = () => {
   }
 
   return <>
-      <h1>Team</h1>
+      <h1 id="team"><b>Team</b></h1>
+      <br></br>
     <ul className='main-container'>
       <div className='create-team-container'>
 
         {team.map((player, index) => {
           return <li key={index}>
             <img className="card-create" src={player.image} />
+            <h2>{player.position}</h2>
             <button className="button" onClick={() => handleRemovePlayer(index)}>Remove Player</button>
           </li>
         })}
 
       </div>
     </ul>
-    <button className="button" onClick={() => handleSubmit()}>Save Team</button>
+    <br></br>
+    <button id="savebutton" className="button" onClick={() => handleSubmit()}>Save Team</button>
     <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
-    <div><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
+    <div id="rules"><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
+    <br></br>
     <div className="cardContainer">
-
-
       <div className='team-container'>
         {filterPlayers().map((player, index) => {
           return <div className="center-of-card" key={index}>
-            <h2>
-              ${new Intl.NumberFormat().format(player.playerCost)}
-              {/* ${player.playerCost} */}
-              {/* {player.position} */}
-            </h2>
-            <h2>
-              {/* {player.createdBy} {player.createdBy} */}
-            </h2>
             <img className="card" src={player.image} />
+            <h2>{player.position}</h2>
+            <h2 class='playerCost'>
+              ${new Intl.NumberFormat().format(player.playerCost)}
+            </h2>
             <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>
+            <br></br>
           </div>
         }
         )}

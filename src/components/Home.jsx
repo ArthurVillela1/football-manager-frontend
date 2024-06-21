@@ -25,7 +25,11 @@ import axios from 'axios'
         {teams.map((team) => (
           <div key={team._id} className='team-box'>
             <h2>{team.manager.username}'s Team</h2>
-            <p>Budget: ${team.budget}</p>
+            {team.manager.username === "admin"? (
+              <p>Budget: {team.budget}</p>
+            ) : (
+              <p>Budget: ${team.budget}</p>
+            )}
             <ul className='players-list'>
               {team.players.map((player) => (
                 <li key={player._id} className='player-item'>

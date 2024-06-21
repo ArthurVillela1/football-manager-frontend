@@ -1,3 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/black-jack');
+
+.playerCost{
+    font-family: 'BlackJack', sans-serif;
+}
+
+#budget, #rules{
+    font-size:20px;
+}
+
+#team{
+    text-align: center;
+    font-size:30px;
+}
+
 .card {
     /* border: white solid 2px; */
     min-width: 13vw;
@@ -42,7 +57,23 @@ li {
     max-height: 81vh;
     min-height: 60vh;
     background-color: #181c23;
-    ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 95%;
+    margin-bottom: 20px;
+    min-height: 40vh;
+}
+
+.create-team-container.active {
+    display: flex;
+    /* border: white solid 2px; */
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 81vh;
+    min-height: 60vh;
+    background-color: #181c23;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
     padding: 20px;
@@ -65,6 +96,7 @@ li {
     gap: 20px;
     align-items: center;
 }
+
 
 .team-box {
     /* background-color: #181c23; */
