@@ -10,7 +10,7 @@ import axios from 'axios'
     useEffect(() => {
       const fetchTeams = async () => {
         try{
-          const response = await axios.get('/api/teams')
+          const response = await axios.get(`${baseUrl}/teams`)
           setTeams(response.data)
         }catch(err){
           console.log('Did not fetch')

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { isAddedBy } from '../lib/auth'
 import "../App.css"
 import { toast } from 'react-toastify';
 import React from 'react'
+import { baseUrl } from '../config';
 
 const Buildteam = () => {
 
@@ -17,14 +16,14 @@ const Buildteam = () => {
 
   useEffect(() => {
     async function fetchPlayers() {
-      const resp = await fetch(`/api/players`)
+      const resp = await fetch(`${baseUrl}/players`)
       const data = await resp.json()
       console.log(data)
       setPlayers(data)
     }
     async function fetchTeam() {
       const token = localStorage.getItem("token")
-      const { data } = await axios.get('/api/userteam', {
+      const { data } = await axios.get(`${baseUrl}/userteam`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setTeam(data.players)

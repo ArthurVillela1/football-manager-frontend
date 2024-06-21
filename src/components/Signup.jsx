@@ -30,7 +30,7 @@ export default function Signup() {
     try {
       // ! Try to post using axios. Axios is a nicer looking fetch, but works in very much the same way.
       // ! For axios.post, first argument is the URL on the backend we're posting to. Second argument is the form itself w/ the data.
-      await axios.post('/api/signup', formData) // ! With axios, you don't need a second await, just one!
+      await axios.post(`${baseUrl}/signup`, formData) // ! With axios, you don't need a second await, just one!
       // ! Navigate to login page on frontend if request was successful.
       navigate('/login')
     } catch (err) {
