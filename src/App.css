@@ -1,31 +1,49 @@
 @import url('https://fonts.cdnfonts.com/css/black-jack');
 
 
-html {
+/* html {
     background-color: #181c23;
 
+} */
+.balance {
+    font-size: 35px;
+    padding: 10px;
 }
-
 .playerCost {
     font-family: 'BlackJack', sans-serif;
+    font-weight: bold;
+    color: aliceblue;
+}
+#budget {
+    font-size: 50px;
+    color: aliceblue;
+}
+.rules {
+    font-size: 15px;
+    color: aliceblue;
+    padding: 10px;
+    border: #212a35 solid 5px;
+    max-width: 48vh;
+    border-radius: 10px;
+    background-color: #212a35;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(32 31 31);
 }
 
-#budget,
-#rules {
-    font-size: 20px;
-}
-
-#team {
+.team {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
 }
-
+.middle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
 .card- {
     min-width: 13vw;
     max-width: 13vw;
     min-height: 21vh;
     background-size: contain;
-    background-color: #181c23;
+    background-color: #212a35
 
 }
 
@@ -35,15 +53,14 @@ html {
     border-radius: 8px;
 }
 
-.container {
-    background-color: #181c23;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.container-players {
+    background-color: #212a35;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(32 31 31);
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     min-width: 95%;
-    justify-content: center;
     align-items: stretch;
 }
 li {
@@ -62,12 +79,13 @@ li {
 .create-team-container {
     display: flex;
     /* border: white solid 2px; */
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    align-items: stretch;
     /* max-height: 81vh; */
     min-height: 60vh;
-    background-color: #181c23;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #212a35;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(32 31 31);
     border-radius: 8px;
     padding: 20px;
     /* width: 100%; */
@@ -97,13 +115,13 @@ li {
 .team-box {
     /* background-color: #181c23; */
     /* border: 1px solid #ddd; */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(32 31 31);
     border-radius: 8px;
     padding: 20px;
     width: 100%;
     max-width: 1200px;
     margin-bottom: 20px;
-    background-color: #181c23;
+    background-color: #212a35
     
 
 }
@@ -116,6 +134,7 @@ li {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    align-items: flex-start;
     padding: 0;
     gap: 15px;
 }

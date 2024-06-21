@@ -119,7 +119,10 @@ const Buildteam = () => {
   }
 
   return <>
-      <h1 id="team"><b>Team</b></h1>
+  <div class="balance"><b>Balance:</b> ${new Intl.NumberFormat().format(money)}</div>
+  <div className="rules"><b>Choose 7 players for your team <br/> Goalkeeper — ( GK )<br/> 2 Defenders — ( CB - LB - RB )  <br/> 2 Midfielders  — ( CDM - CAM - CM - LM - RM )<br/> 2 Strikers — ( ST - CF - ATT - LW -RW ) </b></div>
+    <h1 className="team"><b>Team</b></h1>
+
       <br></br>
     <ul className='main-container'>
       <div className='create-team-container'>
@@ -128,19 +131,24 @@ const Buildteam = () => {
           return <li key={index}>
             <img className="card-create" src={player.image} />
             <h2>{player.position}</h2>
-            <button className="button" onClick={() => handleRemovePlayer(index)}>Remove Player</button>
+            <h2 class='playerCost'>
+              ${new Intl.NumberFormat().format(player.playerCost)}
+            </h2>
+            <button className="button is-danger is-outlined" onClick={() => handleRemovePlayer(index)}>Sell Player</button>
           </li>
         })}
 
       </div>
     </ul>
     <br></br>
-    <button id="savebutton" className="button" onClick={() => handleSubmit()}>Save Team</button>
-    <div id="budget"><b>Budget:</b> ${new Intl.NumberFormat().format(money)}</div>
-    <div id="rules"><b>Choose 7 players for your team: 1 Goalkeeper, 2 Defenders, 2 Midfielders and 2 Strikers </b></div>
+    <div className='middle-content'>
+    <button className="button is-info is-inverted is-large" onClick={() => handleSubmit()}>Save Team</button>
+    <br></br>
+    <div id="budget"><b>Balance:</b> ${new Intl.NumberFormat().format(money)}</div>
+    </div>
     <br></br>
     
-      <div className='container'>
+      <div className='container-players'>
         {filterPlayers().map((player, index) => {
           return <div className="center-of-card" key={index}>
             <img className="card-" src={player.image} />
@@ -148,7 +156,7 @@ const Buildteam = () => {
             <h2 class='playerCost'>
               ${new Intl.NumberFormat().format(player.playerCost)}
             </h2>
-            <button className="button" onClick={() => { handleAddPlayer(index) }}>Add to team</button>
+            <button className="button is-success is-outlined" onClick={() => { handleAddPlayer(index) }}>Buy Player</button>
             <br></br>
           </div>
         }
