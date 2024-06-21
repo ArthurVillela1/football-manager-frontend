@@ -2,6 +2,7 @@ import { useState } from "react"
 import axios from 'axios'
 // ! A hook from React Router that gives you a function to redirect your page.
 import { useNavigate } from "react-router-dom"
+import { baseUrl } from '../config';
 
 // ! Component for the signup page
 export default function Signup() {

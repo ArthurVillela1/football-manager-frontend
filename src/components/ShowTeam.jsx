@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { isAddedBy } from '../lib/auth'
+import { baseUrl } from '../config';
 
 const Players = () => {
     const navigate = useNavigate()
@@ -12,7 +13,7 @@ const Players = () => {
   
     useEffect(() => {
       async function fetchPlayers() {
-        const resp = await fetch(`/api/players/${playerId}`)
+        const resp = await fetch(`${baseUrl}/players/${playerId}`)
         const data = await resp.json()
         setPlayer(data)
         

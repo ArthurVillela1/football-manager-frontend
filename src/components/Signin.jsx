@@ -2,6 +2,7 @@
 import { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import { baseUrl } from '../config';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
