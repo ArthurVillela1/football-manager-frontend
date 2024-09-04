@@ -148,7 +148,7 @@ const Buildteam = () => {
     </div>
     <br></br>
     
-      <div className='container-players'>
+      <div className='container-Card'>
         {filterPlayers().map((player, index) => {
           return <div className="center-of-card" key={index}>
             <img className="card-" src={player.image} />
@@ -156,7 +156,7 @@ const Buildteam = () => {
             <h2 class='playerCost'>
               ${new Intl.NumberFormat().format(player.playerCost)}
             </h2>
-            <button className="button is-success is-outlined" onClick={() => { handleAddPlayer(index) }}>Buy Player</button>
+            <button className="button" onClick={() => { handleAddPlayer(index) }}>Buy Player</button>
             <br></br>
           </div>
         }

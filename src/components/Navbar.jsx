@@ -21,7 +21,7 @@ const Navbar = () => {
     navigate("/")
   }
 
-  return <nav className="navbar">
+  return <div className="navbar">
     <div className="navbar-menu is-active">
       <div className="navbar-end">
         <div className="navbar-item">
@@ -35,7 +35,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 }
 
 export default Navbar

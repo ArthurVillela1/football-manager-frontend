@@ -42,7 +42,7 @@ export default function Signup() {
 
   // ! A bunch of nicely styled JSX for our form, with all 4 inputs inside.
   return <div className="section">
-    <div className="container">
+    <div className="container-form">
       {/* // ! When the form is submitted, calls handleSubmit function. */}
       <form onSubmit={handleSubmit}>
         <div className="field">

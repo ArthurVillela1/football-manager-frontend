@@ -21,6 +21,7 @@ import { baseUrl } from '../config';
 
     return (
       <div className='teams-display'>
+        <h1 className='team'>ALL PUBLIC TEAMS</h1>
         {teams.map((team) => (
           <div key={team._id} className='team-box'>
             <h2>{team.manager.username}'s Team</h2>

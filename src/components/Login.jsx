@@ -35,7 +35,7 @@ export default function Login() {
   }
 
   return <div className="section">
-    <div className="container">
+    <div className="container is-fullhd">
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label className="label">Email</label>

@@ -9,6 +9,7 @@
     font-size: 35px;
     padding: 10px;
 }
+
 .playerCost {
     font-family: 'BlackJack', sans-serif;
     font-weight: bold;
@@ -53,7 +54,7 @@
     border-radius: 8px;
 }
 
-.container-players {
+.container{
     background-color: #212a35;
     box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(32 31 31);
     border-radius: 8px;
